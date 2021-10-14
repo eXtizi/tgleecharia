@@ -70,6 +70,7 @@ class TgUploader:
          if len(filee)>(59-len(ext)):
                 filee=filee[:(59-len(ext))]
          filee=filee+'.'+ext
+        print('saef ' +filee)
         new_path = os.path.join(dirpath, filee)
         os.rename(up_path, new_path)
         up_path = new_path
