@@ -63,6 +63,10 @@ class TgUploader:
         self.__listener.onUploadComplete(self.name, None, msgs_dict, None, corrupted)
 
     def upload_file(self, up_path, filee, dirpath):
+        filee=filee.replace('_','.')
+        new_path = os.path.join(dirpath, filee)
+        os.rename(up_path, new_path)
+        up_path = new_path
         if CUSTOM_FILENAME is not None:
             cap_mono = f"{CUSTOM_FILENAME} <code>{filee}</code>"
             filee = f"{CUSTOM_FILENAME} {filee}"
