@@ -63,7 +63,13 @@ class TgUploader:
         self.__listener.onUploadComplete(self.name, None, msgs_dict, None, corrupted)
 
     def upload_file(self, up_path, filee, dirpath):
-        filee=filee.replace('_','.')
+        if len(filee)>60:
+         ext=filee.split('.')[-1]
+         filee=filee.split('.')[:-1]
+         filee=filee.replace('_','').replace('.','')
+         if len(filee)>(59-len(ext)):
+                filee=filee[:(59-len(ext))]
+         filee=filee+'.'+ext
         new_path = os.path.join(dirpath, filee)
         os.rename(up_path, new_path)
         up_path = new_path
