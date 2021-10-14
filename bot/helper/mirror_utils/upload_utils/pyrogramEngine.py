@@ -66,7 +66,7 @@ class TgUploader:
         if len(filee)>60:
          ext=filee.split('.')[-1]
          filee='.'.join(filee.split('.')[:-1])
-         filee=filee.replace('_','').replace('.','')
+         filee=filee.replace('_','.')
          if len(filee)>(59-len(ext)):
                 filee=filee[:(59-len(ext))]
          filee=filee+'.'+ext
